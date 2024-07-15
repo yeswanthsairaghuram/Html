@@ -1,0 +1,188 @@
+<html>
+<head>
+    <title>Login Page</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+         @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Montserrat;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background:url(./assests/3416207_59271.jpg) no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+        .login{
+            width: 420px;
+            background: transparent;
+            border: 2px solid #005E69;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 0 10px rgba(0 , 0, 0, .2);
+            color: white;
+            border-radius: 10px;
+            padding: 30px 40px;
+            display: none;
+        }
+        .login.active {
+            display: block;
+        }
+        .login h1{
+            font-size: 36px;
+            text-align: center;
+        }
+        .username{
+            position: relative;
+            width: 100%;
+            height: 50px;
+            margin: 30px 0;
+        }
+        .username input{
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            border: none;
+            outline: none;
+            border: 2px solid rgba(255,255,255,.2);
+            border-radius: 40px;
+            font-size: 16px;
+            color: white;
+            padding: 20px 45px 20px 20px;
+        }
+        .username input::placeholder{
+            color: white;
+        }
+        .username i{
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 20px;
+        }
+        .login .remender_forget{
+            display: flex;
+            justify-content: space-between;
+            font-size: 14.5px;
+            margin: -15px 0 15px;
+        }
+        .remender_forget label input{
+            color: white;
+            margin: 20px 0 15px;
+        }
+        .remender_forget a{
+            color: white;
+            text-decoration: none;
+            position: relative;
+            top: 18px;
+        }
+        .remender_forget a:hover{
+            text-decoration: underline;
+        }
+        .btn{
+            width: 100%;
+            height: 45px;
+            background: white;
+            border: none;
+            outline: none;
+            border-radius: 40px;
+            box-shadow: 0 0 10px rgba(0 , 0, 0, .1);
+            cursor: pointer;
+            font-size: 16px;
+            color: #333;
+            font-weight: 600;
+        }
+        .registe_link{
+            font-size: 14.5px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .registe_link a{
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .registe_link a:hover{
+            text-decoration: underline;
+        }
+         @media screen and (max-width:425px){
+            .remender_forget{
+                flex-direction: column;
+                align-items: center;
+                line-height: 0px;
+                padding-bottom: 20px;
+            }
+            .username{
+                width: 300px;
+                padding-left: 20px;
+            }
+            .btn{
+                width: 300px;
+                margin-left: 10px;
+            }
+
+         }
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <div id="login_form" class="login active">
+            <h1>Log In</h1>
+            <div class="username">
+                <label><input type="text" placeholder="User Name" required></label>
+                <i class='bx bxs-user'></i>
+            </div>
+            <div class="username">
+                <label><input type="password" placeholder="Password" required/></label>
+                <i class='bx bxs-lock-alt'></i>
+            </div>
+            <div class="remender_forget">
+                <label><input type="checkbox"/>Remember Me</label>
+                <a href="#">Forget Password?</a>
+            </div>
+            <button type="submit" class="btn">Login</button>
+            <div class="registe_link">
+                <p>Don't have an account ? <a href="#" onclick="showRegisterForm()">Register</a></p>
+            </div>
+        </div>
+        <div id="register_form" class="login">
+            <h1>Registration</h1>
+            <div class="username">
+                <label><input type="text" placeholder="User Name" required></label>
+                <i class='bx bxs-user'></i>
+            </div>
+            <div class="username">
+                <label><input type="email" placeholder="Email" required></label>
+                <i class='bx bxs-envelope'></i>
+            </div>
+            <div class="username">
+                <label><input type="password" placeholder="Password" required/></label>
+                <i class='bx bxs-lock-alt'></i>
+            </div>
+            <div class="remender_forget">
+                <label><input type="checkbox" required/>I agree to terms & Condition</label>
+            </div>
+            <button type="submit" class="btn">Register</button>
+            <div class="registe_link">
+                <p>Already have an account ? <a href="#" onclick="showLoginForm()">Login</a></p>
+            </div>
+        </div>
+    </div>
+    <script>
+        function showRegisterForm() {
+            document.getElementById('login_form').classList.remove('active');
+            document.getElementById('register_form').classList.add('active');
+        }
+
+        function showLoginForm() {
+            document.getElementById('register_form').classList.remove('active');
+            document.getElementById('login_form').classList.add('active');
+        }
+    </script>
+</body>
+</html>
